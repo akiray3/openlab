@@ -23,7 +23,7 @@
       padding: 1vw;
       white-space: pre-wrap;
       word-break: break-word;
-      font-size: 2vw;
+      font-size: 1.5vw;
       z-index: 9999;
     }
   </style>
@@ -97,9 +97,12 @@
       "As drug numbers increase, possible combinations grow exponentially.",
       "A data-driven approach helps ensure safer medication practices.",
       "私たちの研究室では薬と薬の「飲み合わせ」が\n原因で起こる副作用を研究しています\n日本中の病院や薬局から集められた\n副作用データベースを解析します\n私達が扱うのは実際の患者さんに起きた\n重大な副作用報告のリアルワールドデータです",
-      "この研究室では統計解析とプログラミングを学びます\nデータ解析の技術を身に着ければ\n大規模データを扱うことができます",
+      "この研究室では統計解析とプログラミングを習得します\nデータ解析の技術を身に着ければ\n大規模データを扱うことができます",
       "心理学を応用した患者さんとの\nコミュニケーション戦略も研究しています\n患者さんとのより良いコミュニケーションを\nデザインすることも私たちの重要なテーマです",
     ];
+
+    let isWarningPhase = false;
+    let windowInterval = 1500;
 
     function getRandomPosition() {
       const top = Math.floor(Math.random() * (window.innerHeight - 200));
@@ -110,6 +113,14 @@
     function createWindowWithTyping(text) {
       const win = document.createElement('div');
       win.className = 'window';
+      if (isWarningPhase) {
+        win.style.display = 'flex';
+        win.style.alignItems = 'center';
+        win.style.justifyContent = 'center';
+        win.style.textAlign = 'center';
+        win.style.width = '20vw';
+        win.style.height = '5vh';
+      }
       const pos = getRandomPosition();
       win.style.top = `${pos.top}px`;
       win.style.left = `${pos.left}px`;
@@ -126,13 +137,31 @@
       typeChar();
     }
 
-    function showNextWindow() {
-      const text = texts[Math.floor(Math.random() * texts.length)];
-      createWindowWithTyping(text);
-      setTimeout(showNextWindow, 1500);
+    function startWindowCycle() {
+      setTimeout(() => {
+        const text = isWarningPhase ? 'WARNING' : texts[Math.floor(Math.random() * texts.length)];
+        createWindowWithTyping(text);
+        startWindowCycle();
+      }, windowInterval);
     }
 
-    showNextWindow();
+    function startWarningPhase() {
+      isWarningPhase = true;
+      windowInterval = 300;
+      setTimeout(() => {
+        isWarningPhase = false;
+        windowInterval = 1500;
+        document.querySelectorAll('.window').forEach(el => el.remove());
+      }, 20000);
+    }
+
+    function warningLoop() {
+      startWarningPhase();
+      setTimeout(warningLoop, 60000);
+    }
+
+    startWindowCycle();
+    warningLoop();
   </script>
 </body>
 </html>
