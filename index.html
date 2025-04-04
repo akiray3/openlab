@@ -23,7 +23,7 @@
       padding: 1vw;
       white-space: pre-wrap;
       word-break: break-word;
-      font-size: 3vw;
+      font-size: 2vw;
       z-index: 9999;
     }
   </style>
@@ -40,7 +40,6 @@
               self.threshold = threshold
           def detect(self, matrix):
               return matrix[matrix[:, 1] > self.threshold]`,
-            `import numpy as np`,
       `def simulate_patients(T_T):
           ages = np.random.normal(65, 10, n)
           sexes = np.random.choice(['M', 'F'], n)
