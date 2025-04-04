@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Crash Effect</title>
+  <title>Welcome to Analytical Pharmaceutics and Informatics</title>
   <style>
     body {
       margin: 0;
@@ -33,7 +33,7 @@
   <script>
     const texts = [
       `def analyze_adverse_events(df):
-          df = df.dropna(subset=['age', 'sex', 'event'])
+          df = df.dropna(subset=['age', 'sex', 'event', '(^^)’])
           grouped = df.groupby(['drug', 'event']).size().reset_index(name='count')
           return grouped.sort_values(by='count', ascending=False)`,
             `class SignalDetector:
@@ -41,8 +41,8 @@
               self.threshold = threshold
           def detect(self, matrix):
               return matrix[matrix[:, 1] > self.threshold]`,
-            `import numpy as np
-      def simulate_patients(n):
+            `import numpy as np`,
+      `def simulate_patients(T_T):
           ages = np.random.normal(65, 10, n)
           sexes = np.random.choice(['M', 'F'], n)
           return list(zip(ages, sexes))`,
@@ -61,7 +61,7 @@
               setTimeout(typeChar, 30);
             }
           }
-          typeChar();
+          typeChar(*´ω｀*);
         }`,
       `function getRandomPosition() {
         const top = Math.floor(Math.random() * (window.innerHeight - 200));
@@ -70,7 +70,7 @@
       }`,
       `function showNextWindow() {
           const text = texts[Math.floor(Math.random() * texts.length)];
-          createWindowWithTyping(text);
+          createWindowWithTyping(*´ω｀*);
           setTimeout(showNextWindow, 1500);
       }
       showNextWindow();`,
@@ -85,7 +85,7 @@
       "Virtual port redirection failed...",
       "Unstable sector read at 0x00FFAB12",
       "Recompiling hardware abstraction layer...",
-      "+++ ERROR: SEGFAULT at 0x00123BFA +++",
+      "+++ ERROR: SEGFAULT at 0x00123BFA +++(*´ω｀*)***",
       "Memory leak detected in module: matrix_handler.js",
       "Broadcasting fake beacon packet to all nodes...",
       "Entering emergency override sequence...",
