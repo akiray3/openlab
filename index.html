@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crash Effect</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #001122;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+    }
+    .window {
+            
+      position: absolute;
+      width: 30vw;
+      max-height: 300px;
+      overflow: auto;
+      border: 2px solid #00ffcc;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #00ffcc;
+      box-shadow: 0 0 20px #00ffcc;
+      border-radius: 6px;
+      padding: 12px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 1.2em;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const texts = [
+      `def analyze_adverse_events(df):
+          df = df.dropna(subset=['age', 'sex', 'event'])
+          grouped = df.groupby(['drug', 'event']).size().reset_index(name='count')
+          return grouped.sort_values(by='count', ascending=False)`,
+            `class SignalDetector:
+          def __init__(self, threshold=0.8):
+              self.threshold = threshold
+          def detect(self, matrix):
+              return matrix[matrix[:, 1] > self.threshold]`,
+            `import numpy as np
+      def simulate_patients(n):
+          ages = np.random.normal(65, 10, n)
+          sexes = np.random.choice(['M', 'F'], n)
+          return list(zip(ages, sexes))`,
+      `function createWindowWithTyping(text) {
+          const win = document.createElement('div');
+          win.className = 'window';
+          const pos = getRandomPosition();
+          win.style.top = 53;
+          win.style.left = 547
+          document.body.appendChild(win);
+          let i = 0;
+          function typeChar() {
+            if (i <= text.length) {
+              win.textContent = text.substring(0, i);
+              i++;
+              setTimeout(typeChar, 30);
+            }
+          }
+          typeChar();
+        }`,
+      `function getRandomPosition() {
+        const top = Math.floor(Math.random() * (window.innerHeight - 200));
+        const left = Math.floor(Math.random() * (window.innerWidth - 400));
+        return { top, left };
+      }`,
+      `function showNextWindow() {
+          const text = texts[Math.floor(Math.random() * texts.length)];
+          createWindowWithTyping(text);
+          setTimeout(showNextWindow, 1500);
+      }
+      showNextWindow();`,
+      ":: CypherCore v3.8 initializing ::",
+      ">> uplink secured to quantum mesh...",
+      ":: injecting nanoflux routines into core memory ::",
+      "[ALERT] rogue process 0xCAFEBABE detected...",
+      ">> echoing back decrypted packet signature...",
+      "System crash detected... initializing memory dump...",
+      "Executing reverse kernel protocol...",
+      "Injecting synthetic trace patterns...",
+      "Virtual port redirection failed...",
+      "Unstable sector read at 0x00FFAB12",
+      "Recompiling hardware abstraction layer...",
+      "+++ ERROR: SEGFAULT at 0x00123BFA +++",
+      "Memory leak detected in module: matrix_handler.js",
+      "Broadcasting fake beacon packet to all nodes...",
+      "Entering emergency override sequence...",
+      "In our laboratory, we are researching how to help patients get the most from their medication.",
+      "We are developing communication strategies based on Pychology.",
+      "Effective communication at pharmacies is key.",
+      "Designing better communication is our research theme.",
+      "We study severe adverse reactions caused by drug interactions.",
+      "We use a national adverse event database from hospitals and pharmacies.",
+      "Using statistical and data science techniques, we uncover hidden risks.",
+      "As drug numbers increase, possible combinations grow exponentially.",
+      "A data-driven approach helps ensure safer medication practices.",
+      "私たちの研究室では薬と薬の「飲み合わせ」が\n原因で起こる副作用を研究しています\n日本中の病院や薬局から集められた\n副作用データベースを解析します\n私達が扱うのは実際の患者さんに起きた\n重大な副作用報告のリアルワールドデータです",
+      "この研究室では統計解析とプログラミングを学びます\nデータ解析の技術を身に着ければ\n大規模データを扱うことができます",
+      "心理学を応用した患者さんとの\nコミュニケーション戦略も研究しています\n患者さんとのより良いコミュニケーションを\nデザインすることも私たちの重要なテーマです",
+    ];
+
+    function getRandomPosition() {
+      const top = Math.floor(Math.random() * (window.innerHeight - 200));
+      const left = Math.floor(Math.random() * (window.innerWidth - 400));
+      return { top, left };
+    }
+
+    function createWindowWithTyping(text) {
+      const win = document.createElement('div');
+      win.className = 'window';
+      const pos = getRandomPosition();
+      win.style.top = `${pos.top}px`;
+      win.style.left = `${pos.left}px`;
+      document.body.appendChild(win);
+
+      let i = 0;
+      function typeChar() {
+        if (i <= text.length) {
+          win.textContent = text.substring(0, i);
+          i++;
+          setTimeout(typeChar, 30);
+        }
+      }
+      typeChar();
+    }
+
+    function showNextWindow() {
+      const text = texts[Math.floor(Math.random() * texts.length)];
+      createWindowWithTyping(text);
+      setTimeout(showNextWindow, 1500);
+    }
+
+    showNextWindow();
+  </script>
+</body>
+</html>
